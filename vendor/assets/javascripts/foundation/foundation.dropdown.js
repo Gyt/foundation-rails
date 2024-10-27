@@ -57,11 +57,11 @@
 
           var settings = target.data(self.attr_name(true) + '-init') || self.settings;
 
-          if (S(e.currentTarget).data(self.data_attr()) && settings.is_hover) {
+          if (S(e.currentTarget).data(self.data_attr()) && !Modernizr.touch && settings.is_hover) {
             self.closeall.call(self);
           }
 
-          if (settings.is_hover) {
+          if (!Modernizr.touch && settings.is_hover) {
             self.open.apply(self, [dropdown, target]);
           }
         })
